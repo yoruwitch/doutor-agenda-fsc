@@ -12,6 +12,12 @@ This is an amazing study project from [Full Stack Club](https://fullstack.club),
 - **Drizzle** — Type-safe ORM for SQL databases
 - **PostgreSQL** — Powerful open-source relational database
 
+## Diagram for the database
+
+- It was made using [Eraser](https://www.eraser.io/), using my `schema.ts` file as prompt to generate this diagram.
+
+![Database Diagram](/public/assets/diagram_db.png)
+
 ## 🌱 Why this project?
 
 This project is a hands-on opportunity to dive deep into full stack development, exploring new tools and best practices. I'm excited to share my progress and discoveries along the way!
