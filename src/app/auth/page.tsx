@@ -1,15 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
+import LogInForm from "./components/log-in-form";
 import SignUpForm from "./components/sign-up-form";
 
 const AuthenticationPage = () => {
@@ -21,18 +12,7 @@ const AuthenticationPage = () => {
           <TabsTrigger value="register">Register</TabsTrigger>
         </TabsList>
         <TabsContent value="login">
-          <Card>
-            <CardHeader>
-              <CardTitle>Login</CardTitle>
-              <CardDescription>
-                Log in to continue to your account.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2"></CardContent>
-            <CardFooter>
-              <Button>Log in</Button>
-            </CardFooter>
-          </Card>
+          <LogInForm />
         </TabsContent>
         <TabsContent value="register">
           <SignUpForm />
