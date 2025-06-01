@@ -1,10 +1,19 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { headers } from "next/headers";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+
+import { auth } from "@/lib/auth";
 
 import LogInForm from "./components/log-in-form";
 import SignUpForm from "./components/sign-up-form";
 
-const AuthenticationPage = () => {
+const AuthenticationPage = async () => {
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (session?.user) {
+    redirect("/dashboard");
+  }
+
   return (
     <div className="flex h-screen w-full items-center justify-center bg-gray-100">
       <header className="mr-4 flex flex-col">
@@ -24,7 +33,10 @@ const AuthenticationPage = () => {
           <TabsTrigger value="login" className="rounded-md hover:bg-gray-300">
             Login
           </TabsTrigger>
-          <TabsTrigger value="register" className="rounded-md hover:bg-gray-300">
+          <TabsTrigger
+            value="register"
+            className="rounded-md hover:bg-gray-300"
+          >
             Register
           </TabsTrigger>
         </TabsList>
