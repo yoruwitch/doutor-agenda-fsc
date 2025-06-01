@@ -21,8 +21,12 @@ const AuthenticationPage = () => {
       </header>
       <Tabs defaultValue="login" className="w-[400px]">
         <TabsList className="mb-4 grid w-full grid-cols-2">
-          <TabsTrigger value="login">Login</TabsTrigger>
-          <TabsTrigger value="register">Register</TabsTrigger>
+          <TabsTrigger value="login" className="rounded-md hover:bg-gray-300">
+            Login
+          </TabsTrigger>
+          <TabsTrigger value="register" className="rounded-md hover:bg-gray-300">
+            Register
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="login">
           <LogInForm />
