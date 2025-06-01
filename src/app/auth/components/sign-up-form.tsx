@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import z from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -59,6 +60,16 @@ const SignUpForm = () => {
       {
         onSuccess: () => {
           router.push("/dashboard"); // Redirect to dashboard after successful registration
+        },
+        //ctx is the context object that contains information about the request and response
+        onError: (ctx) => {
+          if (ctx.error.code === "USER_ALREADY_EXISTS") {
+            toast.error("User already exists. Please use a different email.");
+            return;
+          }
+          toast.error(
+            `An error occurred while creating your account: ${ctx.error.message}`,
+          );
         },
       },
     );

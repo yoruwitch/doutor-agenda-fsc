@@ -1,5 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -24,7 +25,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
-import { Loader2 } from "lucide-react";
 
 const LogInForm = () => {
   // The following schema is used to validate the registration form.
@@ -115,7 +115,11 @@ const LogInForm = () => {
               />
             </CardContent>
             <CardFooter>
-              <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={form.formState.isSubmitting}
+              >
                 {form.formState.isSubmitting ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
